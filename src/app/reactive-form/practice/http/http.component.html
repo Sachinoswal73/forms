@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form [formGroup]="rForm" (ngSubmit)="onSubmit()">
+                <input type="text" 
+                name="" 
+                placeholder="fname"
+                formControlName="fname"
+                >
+
+                <input type="text" 
+                name="" 
+                placeholder="phone"
+                formControlName="phone"
+                >
+                
+                <button type="submit">
+                    Add User
+                </button>
+            </form>
+        </div>
+        <div class="col-6">
+          <p> {{ gotData | json }} </p>
+          <p> {{ myInterval }} </p>
+        </div>
+    </div>
+</div>
+
+<br>

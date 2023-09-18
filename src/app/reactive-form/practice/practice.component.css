@@ -1,0 +1,26 @@
+
+
+.col6a{
+    position: relative;
+    height: 500px;
+}
+
+.bgc{
+    background-color: rgba(199, 209, 207, 0.4);
+    position : absolute;
+    height: 500px;
+    /* z-index: 1; */
+}
+
+.hero-image {
+    background: linear-gradient(to right, #3204fdba, #9907facc), url(https://dubaitrippackages.files.wordpress.com/2017/11/2-imgdinosaurs_base.jpg) no-repeat top center;
+    /* position: absolute; */
+    /* background-image: url("https://dubaitrippackages.files.wordpress.com/2017/11/2-imgdinosaurs_base.jpg"); */
+    height: 450px;
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0; */
+    transform: perspective(100rem) rotateY(180deg) ;
+    -webkit-transform: perspective(100rem) rotateY(180deg);
+  }

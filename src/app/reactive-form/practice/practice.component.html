@@ -1,0 +1,103 @@
+
+<form [formGroup]="signinForm" (ngSubmit)="onSignin()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="email" 
+            class="form-control" 
+            placeholder="Email"
+            formControlName="email"
+            >
+            <span class=""
+            *ngIf="signinForm.get('email').pending"
+            >
+            <img src="https://cdn.slidevision.io/www/14304000000085015_loader.gif" width="70px" alt="">
+            </span>
+            <span class="badge badge-info"
+            *ngIf="signinForm.get('email').errors?.foundSpace"
+            >
+            * Empty space isn't allowed
+            </span>
+            <span class="badge badge-warning"
+                *ngIf="signinForm.get('email').errors?.required && signinForm.get('email').touched"
+                >
+                * Enter Correct Email id. 
+            </span>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="password" 
+            class="form-control"
+            placeholder="Password"
+            formControlName='password'
+            >
+      </div>
+      <span class="badge badge-danger"
+        *ngIf="signinForm.get('password').errors?.foundSpace"  
+        >
+        * PAssword Should be unique.
+      </span>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" 
+            class="form-control" 
+            placeholder="City"
+            formControlName="city"
+            >
+      </div>
+      <div class="form-group col-md-4">
+        <select id="inputState" 
+            class="form-control"
+            formControlName="state"
+            >
+          <option selected>Choose State</option>
+          <option>MH</option>
+          <option>GJ</option>
+          <option>KA</option>
+          <option>TN</option>
+          <option>HP</option>
+          <option>DL</option>
+          <option>RJ</option>
+          <option>GO</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <input type="text" 
+            class="form-control"
+            formControlName="zip"
+            >
+      </div>
+      <span class="badge badge-danger"
+        *ngIf="signinForm.get('zip').errors?.foundSpace"  
+        >
+        * Zip Should be unique.
+      </span>
+    </div>
+
+    <button type="submit" 
+        class="btn btn-primary"
+        [disabled]="signinForm.invalid"
+        >Sign in
+    </button>
+
+  </form>
+  
+  <br>
+
+  <app-table></app-table>
+
+  <br>
+  <br>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-6 border p-2 m-2 col6a">
+            <!-- <div class="bgc"></div> -->
+            <div class="hero-image">
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <br>
+  <br>

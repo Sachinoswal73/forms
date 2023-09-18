@@ -1,0 +1,26 @@
+
+----------------
+<br><br>
+
+<table class="table table-bordered">
+  <thead>
+      <tr>
+          <td>Email</td>
+          <td>Pwd</td>
+          <td>City</td>
+          <td>State</td>
+          <td>Zip</td>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let su of sUsers">
+          <td pracDir>{{su.sEmail}}</td>
+          <td>{{su.sPassword | encode}}</td>
+          <td>{{su.sCity}}</td>
+          <td>{{su.sState}}</td>
+          <td>{{su.sZip}}</td>
+      </tr>
+  </tbody>
+</table>
+
+<hr>

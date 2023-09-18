@@ -1,0 +1,93 @@
+<h3 style="color:red">Reactive Approach Form </h3>
+      <hr>
+      
+      <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input type="text"
+              placeholder="Full Name" 
+              name="fname"
+              formControlName="fname" 
+              id="ifname" 
+              class="form-control">
+              <span *ngIf="reactiveForm.get('fname').errors?.noSpace && reactiveForm.get('fname').touched">Enter a name</span>
+          </div>
+          <div class="form-group">
+            <input type="email"
+              placeholder="Email id" 
+              name="email" 
+              id="iemail" 
+              formControlName="email"
+              class="form-control">
+              <span *ngIf="reactiveForm.get('email').pending">
+                <img src="https://www.aquecimentoindustrial.com.br/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/images/dark-loader.gif"
+                style="width:40px">
+              </span>
+              <span *ngIf="reactiveForm.get('email').errors?.varUniqueEmail" >Email already aahe</span>
+          </div>
+         
+          <div class="form-group">
+            <input type="text"
+              placeholder="Phone Name" 
+              name="phone" 
+              id="iphone" 
+              formControlName="phone"
+              class="form-control">
+          </div>
+          
+          <div formArrayName="knownLangs">
+            <label for="knownLangs">Known Languages</label>
+            <div class="input-group mt-1" 
+                *ngFor="let kl of reactiveForm.get('knownLangs').controls; let i = index"
+                >  
+                <input type="text"
+                [formControlName]="i"
+                placeholder="" 
+                name="knownLangs" 
+                id="kwl" 
+                class="form-control">
+                <div
+                    *ngIf="reactiveForm.get('knownLangs').controls.length == i + 1" 
+                    class="input-group-append">
+                    <button class="btn btn-outline-secondary"
+                    (click)="addNewLang()"
+                    >
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>    
+            </div>
+          </div>
+
+          <div class="form-group mt-4">
+            <input type="password"
+              placeholder="Pwd" 
+              name="pwd" 
+              id="pwd" 
+              formControlName="pwd"
+              class="form-control">
+          </div>
+
+          <button type="submit" 
+          class="btn btn-danger"
+          >
+          Register
+          </button>
+
+          
+          <button type="button" 
+          class="btn btn-warning ml-4"
+          (click)="patchMethod()"
+          >
+          Check Patch Method on Email
+          </button>
+
+          <br><br>
+
+          <button type="button" 
+          class="btn btn-info"
+          (click)="setAllValues()"
+          >
+          Add all values Check setValue Method
+          </button>
+
+
+      </form>
